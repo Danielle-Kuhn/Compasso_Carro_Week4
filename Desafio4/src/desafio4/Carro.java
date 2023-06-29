@@ -1,15 +1,20 @@
 package desafio4;
 
+
+
 public class Carro extends Veiculo {
 
-    private boolean temArCondi;
-    private boolean temRadio;
+    protected boolean temArCondi;
+    protected boolean temRadio;
 
-    public Carro(boolean temArCondi, boolean temRadio, boolean motor, boolean volante, int qntPassageiro, int qntPorta, int qntRoda, boolean carga, double capaciCarga, Combustivel combustivel) {
-        super(motor, volante, qntPassageiro, qntPorta, qntRoda, carga, capaciCarga, combustivel);
+    public Carro(boolean temArCondi, boolean temRadio, int ano, boolean motor, boolean volante, int qntPassageiro, int qntPorta, int qntRoda, boolean carga, double capaciCarga, Combustivel combustivel) {
+        super(ano, motor, volante, qntPassageiro, qntPorta, qntRoda, carga, capaciCarga, combustivel);
         this.temArCondi = temArCondi;
         this.temRadio = temRadio;
     }
+
+   
+    
 
     public boolean isTemArCondi() {
         return temArCondi;
@@ -27,4 +32,17 @@ public class Carro extends Veiculo {
         this.temRadio = temRadio;
     }
 
+   
+
+    @Override
+    public String toString() {
+        return "Carro: " + 
+                "\nTem ar condicionado:" + (temArCondi? "Tem": "Nao tem") + 
+                "\nTem Radio: " + (temRadio? "Tem": "Nao tem") + 
+                "\nAno:" + ano + 
+                "\nQuantidade de passageiros: " +qntPassageiro +
+                "\nQuantidade de portas: " +qntPorta;
+    }
+    
+    
 }

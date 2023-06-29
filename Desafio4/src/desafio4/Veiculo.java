@@ -1,17 +1,21 @@
 package desafio4;
 
+import java.time.Year;
+
 public class Veiculo {
 
+    protected int ano;
     private boolean motor;
     private boolean volante;
-    private int qntPassageiro;
-    private int qntPorta;
+    protected int qntPassageiro;
+    protected int qntPorta;
     private int qntRoda;
     private boolean carga;
-    private double capaciCarga;
-    private Combustivel combustivel;
+    protected double capaciCarga;
+    protected Combustivel combustivel;
 
-    public Veiculo(boolean motor, boolean volante, int qntPassageiro, int qntPorta, int qntRoda, boolean carga, double capaciCarga, Combustivel combustivel) {
+    public Veiculo(int ano, boolean motor, boolean volante, int qntPassageiro, int qntPorta, int qntRoda, boolean carga, double capaciCarga, Combustivel combustivel) {
+        this.ano = ano;
         this.motor = motor;
         this.volante = volante;
         this.qntPassageiro = qntPassageiro;
@@ -21,6 +25,8 @@ public class Veiculo {
         this.capaciCarga = capaciCarga;
         this.combustivel = combustivel;
     }
+
+  
 
     public boolean isMotor() {
         return motor;
@@ -84,6 +90,29 @@ public class Veiculo {
 
     public void setCombustivel(Combustivel combustivel) {
         this.combustivel = combustivel;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+    
+    
+    public boolean veiculoDoAno(){
+        if(Year.now().getValue() == ano)
+            return true;
+        else
+            return false;
+    }
+    
+    public boolean pagaIPVA(){
+        if(Year.now().getValue()-ano < 20)
+            return true;
+        else
+            return false;
     }
 
 }
